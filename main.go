@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	productmongorepo "github.com/afif0808/inventory-and-sales-service/product/repository/mongo"
+	productmongorepo "github.com/afif0808/inventory-sales-service/product/repository/mongo"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -22,7 +22,7 @@ func main() {
 			panic(err)
 		}
 	}()
-	db := client.Database("afentory")
+	db := client.Database("inventory-sales")
 	ps, err := productmongorepo.GetMany(db)(context.Background(), nil)
 	fmt.Println(ps, err)
 }
